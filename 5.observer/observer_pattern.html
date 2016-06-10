@@ -1,0 +1,45 @@
+<html>
+  <haed>
+
+  </head>
+
+  <body>
+    <button id = "addNewObserver">add new observer check box</button><br/>
+    this is subject.<br/>
+    <input id = "mainCheckbox" type="checkbox"/>
+
+    <div id = "observersContainer">
+      These are observers.<br/>
+    </div>
+
+    <script src="observer.js"></script>
+    <script>
+      var controlCheckBox = document.getElementById('mainCheckbox');
+      var addButton = document.getElementById('addNewObserver');
+      var container= document.getElementById('observersContainer');
+
+      extend(new Subject(), controlCheckBox);
+
+      controlCheckBox["onclick"] = new Function("controlCheckBox.notify(controlCheckBox.checked)");
+
+      addButton["onclick"] = addNewObserver;
+
+      function addNewObserver() {
+        console.log('addNewObserver');
+        var check = document.createElement("input");
+        check.type = "checkbox";
+
+        extend(new Observer(), check);
+        //check.prototype = new Observer(); 違うかも
+
+
+        check.update = function(value) {
+          this.checked = value;
+        };
+      controlCheckBox.addObserver(check);
+      container.appendChild(check);
+    }
+    </script>
+  </body>
+
+</html>
