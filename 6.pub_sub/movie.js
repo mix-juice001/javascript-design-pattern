@@ -4,7 +4,6 @@
   console.log($);
   $.subscribe('/new/user', function(e, data) {
     var compiledTemplate;
-      console.log($("#userTemplate"));
     if (data) {
       compiledTemplate = _.template($("#userTemplate").html());
       $('#users').append(compiledTemplate(data));
@@ -14,16 +13,11 @@
   $.subscribe("/new/rating", function(e, data) {
     var compiledTemplate;
     if (data) {
-      console.log($("#ratingsTemplate"));
       compiledTemplate = _.template($("#ratingsTemplate").html());
-      $("#raitings").append(compiledTemplate(data));
+      $("#ratings").append(compiledTemplate(data));
     }
   });
 
-console.log($("#add"));
-  $("#add").on("click",  function() {
-    console.log('aaaaaaaaaaaa');
-  });
   $("#add").on("click", function(event) {
     event.preventDefault();
 
@@ -32,7 +26,7 @@ console.log($("#add"));
     var strRating = $("#movie_rating").val();
 
     $.publish("/new/user", {name: strUser});
-    $.publish("/new/raiting", {title: strMovie, rating: strRating});
+    $.publish("/new/rating", {title: strMovie, rating: strRating});
 
   });
 
