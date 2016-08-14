@@ -1,0 +1,41 @@
+<div id="container">
+  <div class="toggle" href="#">More Info (Address)
+    <span class="info">
+      This is more information
+    </span>
+  </div>
+  <div class="toggle" href="#">Even More Info (Map)
+    <span class="info">
+      <iframe src="http://www.map-generator.net.extmap.php?name=London&address=london%2C%20england&width=500...gt;"</iframe>
+    </span>
+  </div>
+<div>
+
+var stateManager = {
+  fly: function() {
+    var self = this;
+    $("#container").unbind().on("click", function(event) {
+      var target = $(event.originalTarget || event.srcElement);
+      if (target.is("div.toggle")) {
+        self.handleClick(target);
+      }
+    })
+  },
+  handleClick: function(elem) {
+    elem.find("span").toggle("slow");
+  }
+};
+
+//-------jQuery.single
+jQuery.single = (function(o) {
+  var collection = jQuery([1]);
+  return function(element) {
+    collection[0] = element;
+    return collection;
+  }
+});
+
+$("div").on("click", function() {
+  var html = jQuery.single(this).next().html();
+  console.log(html);
+});
