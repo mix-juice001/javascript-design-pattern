@@ -19,7 +19,7 @@ var car = carFactory.createVehicle({
   doors: 6
 });
 
-console.log(car instanceOf Car);
+// console.log(car instanceOf Car);
 console.log(car);
 
 var movingTruck = carFactory.createVehicle({
@@ -29,7 +29,7 @@ var movingTruck = carFactory.createVehicle({
   wheelSize: "small"
 });
 
-console.log(movingTruck instanceOf Truck);
+// console.log(movingTruck instanceOf Truck);
 console.log(movingTruck);
 
 //TruckFactory を VehicleFactoryのサブクラスとして生成
@@ -43,5 +43,5 @@ var myBigTruck = truckFactory.createVehicle({
   color: "pink",
   wheelSize: "so big"
 });
-console.log(myBigTruck instanceOf Truck);
+// console.log(myBigTruck instanceOf Truck);
 console.log(myBigTruck);

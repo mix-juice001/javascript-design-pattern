@@ -3,7 +3,7 @@ var AbstractVehicleFactory = (function() {
   return {
     getVehicle: function(type, customizations) {
       var Vehicle = types[type];
-      return (Vehicle) ? return new Vehicle(customizations) : null;
+      return (Vehicle) ? new Vehicle(customizations) : null;
     },
     registerVehicle: function(type, Vehicle) {
       var proto = Vehicle.prototype;
@@ -15,7 +15,7 @@ var AbstractVehicleFactory = (function() {
       return AbstractVehicleFactory;
     }
   };
-});
+})();
 
 // how to use
 AbstractVehicleFactory.registerVehicle("car", Car);
@@ -30,3 +30,6 @@ var truck = AbstractVehicleFactory.getVehicle("truck", {
   wheelSize: "medium",
   color: "neon yellow"
 });
+
+console.log(car);
+console.log(truck);
