@@ -29,7 +29,7 @@ function augment(receivingClass, givingClass) {
   else {
     for (var methodName in givingClass.prototype) {
       if (!Object.hasOwnProperty(receivingClass.prototype, methodName)) {
-        receivingClass.prototype[methodName] = givingClass.prototype[methodname];
+        receivingClass.prototype[methodName] = givingClass.prototype[methodName];
       }
 
       //代替案
@@ -40,20 +40,24 @@ function augment(receivingClass, givingClass) {
       */
     }
   }
-
-  arguments(Car, Mixin, "driveForword", "driveBackword");
-
-  var myCar = new Car({
-    model: "Ford Escort",
-    color: "blue"
-  });
-
-  myCar.driveForword();
-  myCar.driveBackword();
-
-  arguments(Car, Mixin);
-
-  var mySportsCar.driveSideways();
+}
 
 
+augment(Car, Mixin, "driveForword", "driveBackword");
+
+var myCar = new Car({
+  model: "Ford Escort",
+  color: "blue"
 });
+
+myCar.driveForword();
+myCar.driveBackword();
+
+augment(Car, Mixin);
+
+var mySportsCar = new Car({
+  model: "porsche",
+  color: "red"
+});
+
+mySportsCar.driveSideways();
